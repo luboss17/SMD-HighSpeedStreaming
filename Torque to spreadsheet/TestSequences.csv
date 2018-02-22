@@ -1,0 +1,133 @@
+7
+
+Test ID,3 points
+Test Formula,formula
+Full Scale,100
+Low,10
+High,10
+% or Unit,%
+Ch1-Unit,Inlb
+TestTable
+#,Target,Low,High
+1,20,18,22
+2,60,54,64
+3,100,90,110
+
+Test ID,5 points
+Test Formula,formula
+Full Scale, 100
+Low,10
+High,10
+% or Unit, %
+Ch1-Unit, Inlb
+TestTable
+#,Target,Low,High
+1,20,18,22
+2,40,36,44
+3,60,54,64
+4,80,72,88
+5,100,90,110
+
+Test ID,5 points and 10%
+Test Formula,formula
+Full Scale,100
+Low,10
+High,10
+% or Unit,%
+Ch1-Unit,Inlb
+Test Table
+#,Target,Low,High
+1,10,9,11
+2,20,18,22
+3,40,36,44
+4,60,54,64
+5,80,72,88
+6,100,90,110
+
+Test ID,5 points 5% and 10%
+Test Formula,formula
+Full Scale,100
+Low,10
+High,10
+% or Unit,%
+Ch1-Unit,Inlb
+Test Table
+#,Target,Low,High
+1,5,4.5,5.5
+2,10,9,11
+3,20,18,22
+4,40,36,44
+5,60,54,64
+6,80,72,88
+7,100,90,110
+
+Test ID,10 points
+Test Formula,formula
+Full Scale,100
+Low,10
+High,10
+% or Unit,%
+Ch1-Unit,InLb
+Test Table
+#,Target,Low,High
+1,10,9,11
+2,20,18,22
+3,30,27,33
+4,40,36,44
+5,50,45,55
+6,60,54,66
+7,70,63,77
+8,80,72,88
+9,90,81,99
+10,100,90,110
+
+Test ID,10 points and 5%
+Test Formula,formula
+Full Scale,100
+Low,10
+High,10
+% or Unit,%
+Ch1-Unit,Inlb
+Test Table
+#,Target,Low,High
+1,5,4.5,5.5
+2,10,9,11
+3,20,18,22
+4,30,27,33
+5,40,36,44
+6,50,45,55
+7,60,54,66
+8,70,63,77
+9,80,72,88
+10,90,81,99
+11,100,90,110
+
+Test ID,20 points
+Test Formula,formula
+Full Scale,100
+Low,10
+High,10
+% or Unit,%
+Ch1-Unit,Inlb
+Test Table
+#,Target,Low,High
+1,5,4.5,5.5
+2,10,9,11
+3,15,13.5,16.5
+4,20,18,22
+5,25,22.5,27.5
+6,30,27,33
+7,35,31.5,38.5
+8,40,36,44
+9,45,40.5,49.5
+10,50,45,55
+11,55,49.5,60.5
+12,60,54,66
+13,65,58.5,71.5
+14,70,63,77
+15,75,67.5,82.5
+16,80,72,88
+17,85,76.5,93.5
+18,90,82,98
+19,95,85.5,104.5
+20,100,90,110

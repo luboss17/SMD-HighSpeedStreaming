@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a589971d-85f8-4adf-80bc-50a7921b508d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.Torque to spreadsheet/.idea/contentModel.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.Torque to spreadsheet/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.Torque to spreadsheet/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.idea.Torque to spreadsheet/riderModule.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Torque to spreadsheet/bin/Release/Torque to spreadsheet.application" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Torque to spreadsheet/bin/Release/Torque to spreadsheet.exe.manifest" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Torque to spreadsheet/bin/Release/Torque to spreadsheet.vshost.application" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Torque to spreadsheet/bin/Release/app.publish/Torque to spreadsheet.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.TrustInfo.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.application" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.exe.manifest" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/.vs/Torque to spreadsheet/v14/.suo" afterPath="$PROJECT_DIR$/Torque to spreadsheet/.vs/Torque to spreadsheet/v14/.suo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/bin/Release/Torque to spreadsheet.exe" afterPath="$PROJECT_DIR$/Torque to spreadsheet/bin/Release/Torque to spreadsheet.exe" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/bin/Release/Torque to spreadsheet.pdb" afterPath="$PROJECT_DIR$/Torque to spreadsheet/bin/Release/Torque to spreadsheet.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/DesignTimeResolveAssemblyReferences.cache" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/DesignTimeResolveAssemblyReferences.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/Torque to spreadsheet.csproj.GenerateResource.Cache" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/Torque to spreadsheet.csproj.GenerateResource.Cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/Torque to spreadsheet.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/Torque to spreadsheet.csprojResolveAssemblyReference.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/WindowsFormsApplication1.AboutBox1.resources" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/WindowsFormsApplication1.AboutBox1.resources" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/DesignTimeResolveAssemblyReferences.cache" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/DesignTimeResolveAssemblyReferences.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.csproj.GenerateResource.Cache" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.csproj.GenerateResource.Cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.csprojResolveAssemblyReference.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.exe" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.exe" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.pdb" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/WindowsFormsApplication1.AboutBox1.resources" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/WindowsFormsApplication1.AboutBox1.resources" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/AboutBox1.Designer.cs" afterPath="$PROJECT_DIR$/Torque to spreadsheet/AboutBox1.Designer.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/AboutBox1.cs" afterPath="$PROJECT_DIR$/Torque to spreadsheet/AboutBox1.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/AboutBox1.resx" afterPath="$PROJECT_DIR$/Torque to spreadsheet/AboutBox1.resx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/Form1.Designer.cs" afterPath="$PROJECT_DIR$/Torque to spreadsheet/Form1.Designer.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/Form1.cs" afterPath="$PROJECT_DIR$/Torque to spreadsheet/Form1.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/Form1.resx" afterPath="$PROJECT_DIR$/Torque to spreadsheet/Form1.resx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/Program.cs" afterPath="$PROJECT_DIR$/Torque to spreadsheet/Program.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/Properties/AssemblyInfo.cs" afterPath="$PROJECT_DIR$/Torque to spreadsheet/Properties/AssemblyInfo.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/Properties/app.manifest" afterPath="$PROJECT_DIR$/Torque to spreadsheet/Properties/app.manifest" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/Torque to spreadsheet.csproj" afterPath="$PROJECT_DIR$/Torque to spreadsheet/Torque to spreadsheet.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/bin/Debug/Torque to spreadsheet.vshost.exe.manifest" afterPath="$PROJECT_DIR$/Torque to spreadsheet/bin/Debug/Torque to spreadsheet.vshost.exe.manifest" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/bin/Release/Torque to spreadsheet.vshost.exe.manifest" afterPath="$PROJECT_DIR$/Torque to spreadsheet/bin/Release/Torque to spreadsheet.vshost.exe.manifest" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/Torque to spreadsheet.csproj.FileListAbsolute.txt" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Debug/Torque to spreadsheet.csproj.FileListAbsolute.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.csproj.FileListAbsolute.txt" afterPath="$PROJECT_DIR$/Torque to spreadsheet/obj/Release/Torque to spreadsheet.csproj.FileListAbsolute.txt" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="Form1.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Torque to spreadsheet/Form1.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Torque to spreadsheet" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1912" />
+    <option name="y" value="-198" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Torque to spreadsheet (2 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Torque to spreadsheet (2 projects)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Torque to spreadsheet" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected=".NET Project.Default">
+    <configuration default="true" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="false" name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Torque to spreadsheet/Torque to spreadsheet.csproj" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.0" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Torque to spreadsheet/bin/Debug/Torque to spreadsheet.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Torque to spreadsheet/bin/Debug" />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue=".NET Project.Default" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a589971d-85f8-4adf-80bc-50a7921b508d" name="Default" comment="" />
+      <created>1493334086107</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1493334086107</updated>
+      <workItem from="1493334090545" duration="125000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="125000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-198" width="2576" height="1416" extended-state="6" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Change Signature" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13515624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Torque to spreadsheet/Form_Delete.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+          <folding>
+            <marker date="1487964861437" expanded="false" signature="6:183" ph="..." />
+            <marker date="1487964861437" expanded="true" signature="219:1627" ph="{...}" />
+            <marker date="1487964861437" expanded="true" signature="265:1625" ph="{...}" />
+            <marker date="1487964861437" expanded="true" signature="348:403" ph="{...}" />
+            <marker date="1487964861437" expanded="true" signature="467:836" ph="{...}" />
+            <marker date="1487964861437" expanded="true" signature="643:826" ph="{...}" />
+            <marker date="1487964861437" expanded="true" signature="902:971" ph="{...}" />
+            <marker date="1487964861437" expanded="true" signature="1054:1303" ph="{...}" />
+            <marker date="1487964861437" expanded="true" signature="1218:1293" ph="{...}" />
+            <marker date="1487964861437" expanded="true" signature="1373:1478" ph="{...}" />
+            <marker date="1487964861437" expanded="true" signature="1547:1619" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TTS/TTS.vdproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Torque to spreadsheet/Form1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="41" column="45" lean-forward="true" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

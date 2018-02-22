@@ -1,0 +1,8 @@
+C:\Users\Huy\Desktop\VB\Visual Studio 2008\Projects\Torque to spreadsheet\Torque to spreadsheet\bin\Debug\Torque to spreadsheet.exe.config
+C:\Users\Huy\Desktop\VB\Visual Studio 2008\Projects\Torque to spreadsheet\Torque to spreadsheet\obj\Debug\Torque to spreadsheet.exe
+C:\Users\Huy\Desktop\VB\Visual Studio 2008\Projects\Torque to spreadsheet\Torque to spreadsheet\obj\Debug\Torque to spreadsheet.pdb
+C:\Users\Huy\Desktop\VB\Visual Studio 2008\Projects\Torque to spreadsheet\Torque to spreadsheet\obj\Debug\Torque to spreadsheet.v9.csprojResolveAssemblyReference.cache
+C:\Users\Huy\Desktop\VB\Visual Studio 2008\Projects\Torque to spreadsheet\Torque to spreadsheet\obj\Debug\WindowsFormsApplication1.AboutBox1.resources
+C:\Users\Huy\Desktop\VB\Visual Studio 2008\Projects\Torque to spreadsheet\Torque to spreadsheet\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Huy\Desktop\VB\Visual Studio 2008\Projects\Torque to spreadsheet\Torque to spreadsheet\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Huy\Desktop\VB\Visual Studio 2008\Projects\Torque to spreadsheet\Torque to spreadsheet\obj\Debug\Torque to spreadsheet.v9.csproj.GenerateResource.Cache
