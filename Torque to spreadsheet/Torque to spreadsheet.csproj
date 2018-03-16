@@ -15,7 +15,7 @@
     <ManifestCertificateThumbprint>45D8DE4CF4F6354F020F98CF059BC817C49BA34D</ManifestCertificateThumbprint>
     <ManifestKeyFile>Torque to spreadsheet_3_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <TargetZone>Internet</TargetZone>
     <SignAssembly>false</SignAssembly>
@@ -99,6 +99,7 @@
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
     <Compile Include="Client.cs" />
+    <Compile Include="CMCMKCal.cs" />
     <Compile Include="exampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
