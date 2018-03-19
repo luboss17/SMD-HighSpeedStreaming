@@ -118,7 +118,6 @@ namespace WindowsFormsApplication1
             activateJetCellLicense();
             firstChannelGrid.Scroll+=new ScrollEventHandler(makeSecondGridScroll);
             secondChannelGridView.Scroll+=new ScrollEventHandler(makeFirstGridScroll);
-
         }
         //Open Virtual Keyboard, for tablet
         public static void openVirtualKeyboard(object sender, EventArgs e)
@@ -226,6 +225,7 @@ namespace WindowsFormsApplication1
             }
             startTest_btn.Location= new Point(909, 150);
             menuStrip1.Focus();
+            Runbgw();
         }
         private void update(float nu)
         {
@@ -1465,7 +1465,7 @@ namespace WindowsFormsApplication1
             return dataArray;
         }
         
-        
+        private bool ch1CMCMKReCalculate = false;//determine if ch1 value was changed/recorded
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             /* Uncomment this to go back to get back to older way of capturing readings
@@ -1528,6 +1528,8 @@ namespace WindowsFormsApplication1
             }
         }
         
+        CMCMKCal ch1CM_CMK = new CMCMKCal();
+        float LSL, USL;
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
@@ -1542,6 +1544,17 @@ namespace WindowsFormsApplication1
 
         }
 
+        //Return List<float> that contains all datas from passed in Datatable, given colName
+        private List<float> getDataColfromDataGrid(DataGridView thisGrid, int colIndex)
+        {
+            List<float> returnFloatList = new List<float>();
+            foreach (DataGridViewRow gridRow in thisGrid.Rows)
+            {
+                if (!gridRow.IsNewRow)
+                    returnFloatList.Add(Single.Parse(gridRow.Cells[colIndex].Value.ToString()));
+            }
+            return returnFloatList;
+        }
         //Passed in serialData that tester output (ex: 100 inlb), write to appropriate grid
         private void captureReadingsUsedByBGW(string serialData)
         {
@@ -1699,12 +1712,47 @@ namespace WindowsFormsApplication1
         //Trigger when timer tick
         private void timer2_Tick(object sender, EventArgs e)
         {
+            
             if (enableLiveReadingToolStripMenuItem.Checked)
             {
                 updateChannelsReadings();
             }
+            
+            try
+            {
+                displayCMCMK();
+            }
+            catch { }
         }
-        
+
+        //Handle show or not show CM CMK Huy added 3/16/18
+        private void displayCMCMK()
+        {
+            //Calculate CM and CMK Huy added 3/16/18
+            if ((showCMK_chkBox.Checked == true) && (ch1CMCMKReCalculate == true))
+            {
+                try
+                {
+                    int readingColIndex = 1;
+
+                    LSL = Single.Parse(LSL_txt.Text.ToString());
+
+                    USL = Single.Parse(USL_txt.Text.ToString());
+
+                    ch1CMCMKReCalculate = false;
+                    List<float> ch1ReadingList = getDataColfromDataGrid(singleChannel_gridView, readingColIndex);
+
+                    ch1CM_CMK.calculate_CMK(LSL, USL, ch1ReadingList);
+                    CMVal_lbl.Text = ch1CM_CMK.calculate_CM(LSL, USL, ch1ReadingList).ToString();
+                    CMKVal_lbl.Text = ch1CM_CMK.calculate_CMK(LSL, USL, ch1ReadingList).ToString();
+                }
+                catch (Exception ex)
+                {
+                }
+
+            }
+        }
+
         //timerCounter is used to stop disconnected Cable from hanging the UI
         //return timerCounter as 5 if no respond from tester (which timer 2 would have to count down till 0 till it can check for tester again)
         //reset timerCounter as 0 if there is respond from tester 
@@ -7260,7 +7308,6 @@ namespace WindowsFormsApplication1
         private DataTable updateTestTable(DataTable thisTable, int maxRow, float FS, float low, float high, int limitPercentEng, int sampleNum, string defaultOrNotTest)
         {
             thisTable.Clear();
-            int formulaPoint = 0;
             int extraRow = 0;
             if (defaultOrNotTest == isDefaultTest)//1 of the default test, use bracket formula to fill out testGrid
             {
@@ -7958,6 +8005,27 @@ namespace WindowsFormsApplication1
         {
             //show or hide CM and CMK value
             showHideCMK(showCMK_chkBox.Checked);
+            if (showCMK_chkBox.Checked==false)
+            {
+                USL_txt.Text = "";
+                LSL_txt.Text = "";
+            }
+        }
+
+        private void USL_txt_TextChanged(object sender, EventArgs e)
+        {
+            ch1CMCMKReCalculate = true;
+        }
+
+        private void LSL_txt_TextChanged(object sender, EventArgs e)
+        {
+            ch1CMCMKReCalculate = true;
+        }
+
+        //set flag that ch1valuechanged= true
+        private void singleChannel_gridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            ch1CMCMKReCalculate = true;
         }
 
         private char currTestGridNum = '0';// value should be 1,2,3 or 4 = AFCW,AFCCW,etc.
@@ -8178,6 +8246,7 @@ namespace WindowsFormsApplication1
             catch { MessageBox.Show("Unable to get list of Tools"); }
             return returnToolsList;
         }
+
 
         //update the list of all Tools ID
         private BindingList<string> updateToolIDList(DataTable toolsDataTable)

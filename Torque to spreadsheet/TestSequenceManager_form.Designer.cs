@@ -621,7 +621,6 @@
             this.newTest_btn.TabIndex = 7;
             this.newTest_btn.Text = "New Test";
             this.newTest_btn.UseVisualStyleBackColor = true;
-            this.newTest_btn.Visible = false;
             this.newTest_btn.Click += new System.EventHandler(this.newTest_btn_Click);
             // 
             // TestSequenceManager_form

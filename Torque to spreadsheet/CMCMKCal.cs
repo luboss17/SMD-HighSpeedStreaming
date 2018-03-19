@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
             double tempSum = 0;
             foreach(float sample in samplesList)
             {
-                tempSum += Math.Pow(average - sample,2);
+                tempSum += (average - sample)*(average - sample);
             }
             sd = Math.Sqrt(tempSum / (samplesList.Count - 1));
             return sd;
@@ -37,13 +37,14 @@ namespace WindowsFormsApplication1
         //calculate CMK value
         public double calculate_CMK(float LSL, float USL, List<float> sampleList)
         {
-            double CMK;
             double val1,val2;
             double min;
-            val1 = ((USL - sampleList.Average()) / (3 * calculate_stand_deviation(sampleList)));
-            val2= ((sampleList.Average()-LSL) / (3 * calculate_stand_deviation(sampleList)));
+            double sd = 3 * calculate_stand_deviation(sampleList);
+            val1 = ((USL - sampleList.Average()) / sd);
+            val2= ((sampleList.Average()-LSL) / sd);
             min = Math.Min(val1, val2);
             return min;
         }
+        
     }
 }

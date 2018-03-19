@@ -691,7 +691,8 @@ namespace WindowsFormsApplication1
                     //Create temptest with only testID value, then add it to testSetups
                     TestSetup tempTest=new TestSetup();
                     tempTest.testID = returntestID;
-                    testSetups.Add(tempTest);
+                    currTestSetup = tempTest;
+                    testSetups.Add(currTestSetup);
 
                     //refresh testSetups_listbox
                     update_testSetups_listbox();
@@ -1038,7 +1039,6 @@ namespace WindowsFormsApplication1
         private DataTable updateTestTable(DataTable thisTable, int maxRow, float FS, float low, float high, int limitPercentEng, int sampleNum, string defaultOrNotTest)
         {
             thisTable.Clear();
-            int formulaPoint = 0;
             int extraRow = 0;
             if (defaultOrNotTest == isDefaultTest)//1 of the default test, use bracket formula to fill out testGrid
             {

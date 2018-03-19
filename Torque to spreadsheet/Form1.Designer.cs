@@ -212,6 +212,10 @@ namespace WindowsFormsApplication1
             this.dsad = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.USL_txt = new System.Windows.Forms.TextBox();
+            this.LSL_txt = new System.Windows.Forms.TextBox();
             this.showCMK_chkBox = new System.Windows.Forms.CheckBox();
             this.CMKVal_lbl = new System.Windows.Forms.Label();
             this.CMK_lbl = new System.Windows.Forms.Label();
@@ -1795,7 +1799,7 @@ namespace WindowsFormsApplication1
             this.groupBox10.Controls.Add(this.delete_column);
             this.groupBox10.Controls.Add(this.label4);
             this.groupBox10.Controls.Add(this.testName_Text);
-            this.groupBox10.Location = new System.Drawing.Point(968, 13);
+            this.groupBox10.Location = new System.Drawing.Point(999, 13);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(444, 722);
             this.groupBox10.TabIndex = 5;
@@ -2302,6 +2306,10 @@ namespace WindowsFormsApplication1
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label43);
+            this.groupBox3.Controls.Add(this.label33);
+            this.groupBox3.Controls.Add(this.USL_txt);
+            this.groupBox3.Controls.Add(this.LSL_txt);
             this.groupBox3.Controls.Add(this.showCMK_chkBox);
             this.groupBox3.Controls.Add(this.CMKVal_lbl);
             this.groupBox3.Controls.Add(this.CMK_lbl);
@@ -2321,18 +2329,52 @@ namespace WindowsFormsApplication1
             this.groupBox3.Location = new System.Drawing.Point(449, 13);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox3.Size = new System.Drawing.Size(513, 502);
+            this.groupBox3.Size = new System.Drawing.Size(544, 502);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Current Run\'s Readings";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(403, 149);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(26, 14);
+            this.label43.TabIndex = 114;
+            this.label43.Text = "LSL";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(402, 109);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(27, 14);
+            this.label33.TabIndex = 113;
+            this.label33.Text = "USL";
+            // 
+            // USL_txt
+            // 
+            this.USL_txt.Location = new System.Drawing.Point(436, 106);
+            this.USL_txt.Name = "USL_txt";
+            this.USL_txt.Size = new System.Drawing.Size(100, 20);
+            this.USL_txt.TabIndex = 112;
+            this.USL_txt.TextChanged += new System.EventHandler(this.USL_txt_TextChanged);
+            // 
+            // LSL_txt
+            // 
+            this.LSL_txt.Location = new System.Drawing.Point(436, 146);
+            this.LSL_txt.Name = "LSL_txt";
+            this.LSL_txt.Size = new System.Drawing.Size(100, 20);
+            this.LSL_txt.TabIndex = 111;
+            this.LSL_txt.TextChanged += new System.EventHandler(this.LSL_txt_TextChanged);
             // 
             // showCMK_chkBox
             // 
             this.showCMK_chkBox.AutoSize = true;
             this.showCMK_chkBox.Checked = true;
             this.showCMK_chkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.showCMK_chkBox.Location = new System.Drawing.Point(21, 54);
+            this.showCMK_chkBox.Location = new System.Drawing.Point(396, 71);
             this.showCMK_chkBox.Name = "showCMK_chkBox";
             this.showCMK_chkBox.Size = new System.Drawing.Size(119, 18);
             this.showCMK_chkBox.TabIndex = 110;
@@ -2343,7 +2385,7 @@ namespace WindowsFormsApplication1
             // CMKVal_lbl
             // 
             this.CMKVal_lbl.AutoSize = true;
-            this.CMKVal_lbl.Location = new System.Drawing.Point(356, 52);
+            this.CMKVal_lbl.Location = new System.Drawing.Point(448, 238);
             this.CMKVal_lbl.Name = "CMKVal_lbl";
             this.CMKVal_lbl.Size = new System.Drawing.Size(58, 14);
             this.CMKVal_lbl.TabIndex = 109;
@@ -2352,7 +2394,7 @@ namespace WindowsFormsApplication1
             // CMK_lbl
             // 
             this.CMK_lbl.AutoSize = true;
-            this.CMK_lbl.Location = new System.Drawing.Point(310, 52);
+            this.CMK_lbl.Location = new System.Drawing.Point(402, 238);
             this.CMK_lbl.Name = "CMK_lbl";
             this.CMK_lbl.Size = new System.Drawing.Size(32, 14);
             this.CMK_lbl.TabIndex = 108;
@@ -2361,7 +2403,7 @@ namespace WindowsFormsApplication1
             // CMVal_lbl
             // 
             this.CMVal_lbl.AutoSize = true;
-            this.CMVal_lbl.Location = new System.Drawing.Point(229, 52);
+            this.CMVal_lbl.Location = new System.Drawing.Point(448, 194);
             this.CMVal_lbl.Name = "CMVal_lbl";
             this.CMVal_lbl.Size = new System.Drawing.Size(51, 14);
             this.CMVal_lbl.TabIndex = 107;
@@ -2370,7 +2412,7 @@ namespace WindowsFormsApplication1
             // CM_lbl
             // 
             this.CM_lbl.AutoSize = true;
-            this.CM_lbl.Location = new System.Drawing.Point(183, 52);
+            this.CM_lbl.Location = new System.Drawing.Point(402, 194);
             this.CM_lbl.Name = "CM_lbl";
             this.CM_lbl.Size = new System.Drawing.Size(25, 14);
             this.CM_lbl.TabIndex = 106;
@@ -2404,7 +2446,7 @@ namespace WindowsFormsApplication1
             // 
             // saveCurrent_button
             // 
-            this.saveCurrent_button.Location = new System.Drawing.Point(246, 467);
+            this.saveCurrent_button.Location = new System.Drawing.Point(198, 462);
             this.saveCurrent_button.Name = "saveCurrent_button";
             this.saveCurrent_button.Size = new System.Drawing.Size(107, 33);
             this.saveCurrent_button.TabIndex = 7;
@@ -2415,7 +2457,7 @@ namespace WindowsFormsApplication1
             // add_serie
             // 
             this.add_serie.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_serie.Location = new System.Drawing.Point(359, 467);
+            this.add_serie.Location = new System.Drawing.Point(311, 462);
             this.add_serie.Name = "add_serie";
             this.add_serie.Size = new System.Drawing.Size(88, 33);
             this.add_serie.TabIndex = 8;
@@ -2425,7 +2467,7 @@ namespace WindowsFormsApplication1
             // 
             // clearCh1CurrRun_btn
             // 
-            this.clearCh1CurrRun_btn.Location = new System.Drawing.Point(152, 467);
+            this.clearCh1CurrRun_btn.Location = new System.Drawing.Point(104, 462);
             this.clearCh1CurrRun_btn.Name = "clearCh1CurrRun_btn";
             this.clearCh1CurrRun_btn.Size = new System.Drawing.Size(88, 33);
             this.clearCh1CurrRun_btn.TabIndex = 6;
@@ -2455,7 +2497,7 @@ namespace WindowsFormsApplication1
             // 
             // deleteCh1Row_btn
             // 
-            this.deleteCh1Row_btn.Location = new System.Drawing.Point(59, 467);
+            this.deleteCh1Row_btn.Location = new System.Drawing.Point(11, 462);
             this.deleteCh1Row_btn.Name = "deleteCh1Row_btn";
             this.deleteCh1Row_btn.Size = new System.Drawing.Size(88, 33);
             this.deleteCh1Row_btn.TabIndex = 5;
@@ -2470,12 +2512,13 @@ namespace WindowsFormsApplication1
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.singleChannel_gridView.Location = new System.Drawing.Point(88, 76);
+            this.singleChannel_gridView.Location = new System.Drawing.Point(40, 71);
             this.singleChannel_gridView.Name = "singleChannel_gridView";
             this.singleChannel_gridView.ReadOnly = true;
             this.singleChannel_gridView.Size = new System.Drawing.Size(337, 385);
             this.singleChannel_gridView.TabIndex = 4;
             this.singleChannel_gridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridview1_CellEndEdit);
+            this.singleChannel_gridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.singleChannel_gridView_CellValueChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -4442,7 +4485,7 @@ namespace WindowsFormsApplication1
             this.AutoScroll = true;
             this.AutoScrollMinSize = new System.Drawing.Size(1473, 945);
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1426, 947);
+            this.ClientSize = new System.Drawing.Size(1690, 947);
             this.Controls.Add(this.TabPages);
             this.Controls.Add(this.testerType);
             this.Controls.Add(this.groupBox1);
@@ -4923,11 +4966,15 @@ namespace WindowsFormsApplication1
         private ToolStripMenuItem updateToolStripMenuItem;
         private ToolStripMenuItem autoUpdateMenuItem;
         private Button startTest_btn;
-        private Label CMVal_lbl;
         private Label CM_lbl;
         private CheckBox showCMK_chkBox;
         private Label CMKVal_lbl;
         private Label CMK_lbl;
+        private Label CMVal_lbl;
+        private TextBox USL_txt;
+        private TextBox LSL_txt;
+        private Label label43;
+        private Label label33;
     }
 }
 
