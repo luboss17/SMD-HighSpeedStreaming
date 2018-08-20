@@ -380,8 +380,6 @@ namespace WindowsFormsApplication1
                         }
                     }
                 }
-
-
                 //Add remaining newList Item to returnList
                 foreach (string item in newList)
                 {
@@ -480,7 +478,8 @@ namespace WindowsFormsApplication1
                 testSetups[currTestIndex] = saveThisTest(testSetups[currTestIndex].defaultTest); //pass in TestSetup into TestSetups[currTestIndex]
                 currTestSetup = testSetups[currTestIndex]; //update the currTestSetup
                 
-                MessageBox.Show("Test successfully saved");   
+                MessageBox.Show("Test successfully saved");
+                isTestSetupSaved = true;
             }
             catch (Exception ex)
             {
@@ -498,7 +497,7 @@ namespace WindowsFormsApplication1
             returnSetup.high = highLimit_txt.Text;
             returnSetup.pointAmount = maxPoint_txt.Text;
             returnSetup.defaultTest = isDefaultTest;
-            returnSetup.sampleNum = sampleNum_txt.Text;
+            returnSetup.sampleNum = sampleNum_txt.Text; 
             returnSetup.percent_unit = limitEngPercent_comboBox.SelectedItem.ToString();
             List<string> testList = convertTestList_CheckToListStr();
             returnSetup.testOrder = getTestOrderStr(testList);
@@ -691,6 +690,7 @@ namespace WindowsFormsApplication1
                     //Create temptest with only testID value, then add it to testSetups
                     TestSetup tempTest=new TestSetup();
                     tempTest.testID = returntestID;
+                    tempTest.defaultTest = notDefaultTest;
                     currTestSetup = tempTest;
                     testSetups.Add(currTestSetup);
 
@@ -728,11 +728,13 @@ namespace WindowsFormsApplication1
                 if (returntestID != "")
                 {
                     testID_txt.Text = returntestID;
-                    testSetups.Add(saveThisTest(notDefaultTest));
+                    //add new test setup
+                    testSetups.Add(saveThisTest(currTestSetup.defaultTest));
                     update_testSetups_listbox();
                 }
 
                 testSetups_listBox.SelectedIndex = testSetups.Count - 1;
+                isTestSetupSaved = true;
             }
             catch (Exception ex)
             {

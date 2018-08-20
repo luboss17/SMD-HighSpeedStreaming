@@ -2333,7 +2333,6 @@ namespace WindowsFormsApplication1
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Current Run\'s Readings";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // label43
             // 
@@ -3315,7 +3314,6 @@ namespace WindowsFormsApplication1
             // 
             // AFCW_grid
             // 
-            this.AFCW_grid.AllowUserToAddRows = false;
             this.AFCW_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AFCW_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AFCW_grid.EnableHeadersVisualStyles = false;
@@ -3406,7 +3404,6 @@ namespace WindowsFormsApplication1
             // 
             // ALCCW_grid
             // 
-            this.ALCCW_grid.AllowUserToAddRows = false;
             this.ALCCW_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ALCCW_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ALCCW_grid.EnableHeadersVisualStyles = false;
@@ -3427,7 +3424,6 @@ namespace WindowsFormsApplication1
             // 
             // AFCCW_grid
             // 
-            this.AFCCW_grid.AllowUserToAddRows = false;
             this.AFCCW_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AFCCW_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AFCCW_grid.EnableHeadersVisualStyles = false;
@@ -3438,7 +3434,6 @@ namespace WindowsFormsApplication1
             // 
             // ALCW_grid
             // 
-            this.ALCW_grid.AllowUserToAddRows = false;
             this.ALCW_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ALCW_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ALCW_grid.EnableHeadersVisualStyles = false;

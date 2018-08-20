@@ -1545,6 +1545,7 @@ namespace WindowsFormsApplication1
         }
 
         //Return List<float> that contains all datas from passed in Datatable, given colName
+        //Huy added 3/16/18
         private List<float> getDataColfromDataGrid(DataGridView thisGrid, int colIndex)
         {
             List<float> returnFloatList = new List<float>();
@@ -2871,7 +2872,7 @@ namespace WindowsFormsApplication1
             return path;
         }
 
-        //changed 9/22/17
+        //changed 3/23/18
         private void saveExcel(string path, DataTable thisTable, int chartType)
         {
             string currTab = TabPages.SelectedTab.Name;
@@ -2897,13 +2898,23 @@ namespace WindowsFormsApplication1
             string range_data, range_high, range_low, range_target;
             try
             {
+                string begin_reading,begin_high, begin_low, begin_target;
+                int startRow,startCol;
+                startCol = 1;
+                startRow = getStartRowExcelData(TabPages.SelectedTab.Name);
+
                 // Get an Excel Range of the same dimensions
-                //Note that since we use singleChannel_gridView, it has extra new row already, so if need to offset 2 
-                range_data = "B" + (singleChannel_gridView.RowCount + 1);
-                range_high = "C" + (singleChannel_gridView.RowCount + 1);
-                range_low = "D" + (singleChannel_gridView.RowCount + 1);
-                range_target = "E" + (singleChannel_gridView.RowCount + 1);
-                string begin_high = "C3", begin_low = "D3", begin_target = "E3";
+                begin_reading = "B" + startRow;
+                begin_high = "C"+startRow;
+                begin_low = "D" + startRow;
+                begin_target = "E" + startRow;
+
+                //Note that since we use singleChannel_gridView, it has extra new row so subtract 1
+                range_data = "B" + (singleChannel_gridView.RowCount - 1+ startRow-1);
+                range_high = "C" + (singleChannel_gridView.RowCount - 1 + startRow - 1);
+                range_low = "D" + (singleChannel_gridView.RowCount - 1 + startRow - 1);
+                range_target = "E" + (singleChannel_gridView.RowCount - 1 + startRow - 1);
+                
 
                 //init Chart setting
                 Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
@@ -2962,7 +2973,12 @@ namespace WindowsFormsApplication1
                 //write readings on Excel
                 if (isMasterSave == false)
                 {//Write gridview readings to excel
-                    Excel.Range datarange = (Excel.Range)xlWorkSheet.Cells[3, 1];
+
+                    //Todo: Write CM CMK value
+                    const int startCMCMKRow = 2,startCMCMKCol=1;
+                    xlWorkSheet = writeCMCMKtoExcel(xlWorkSheet, startCMCMKRow, startCMCMKCol);
+
+                    Excel.Range datarange = (Excel.Range)xlWorkSheet.Cells[startRow, startCol];
                     datarange = datarange.get_Resize(rowCount - 1, colCount);
                     datarange.set_Value(Excel.XlRangeValueDataType.xlRangeValueDefault, datas);
                     string colName = thisTable.Columns[1].ColumnName;
@@ -2971,15 +2987,15 @@ namespace WindowsFormsApplication1
                     reading.Name = colName;
                     reading.Border.Color = Color.Blue;
 
-                    Excel.Range reading_range = xlWorkSheet.get_Range("B3", range_data);
+                    Excel.Range reading_range = xlWorkSheet.get_Range(begin_reading, range_data);
 
                     reading.Values = reading_range;
                     //add heading for Excel file 
-                    xlWorkSheet.Cells[2, 1] = "Point";
-                    xlWorkSheet.Cells[2, 2] = colName;
-                    xlWorkSheet.Cells[2, 3] = "High";
-                    xlWorkSheet.Cells[2, 4] = "Low";
-                    xlWorkSheet.Cells[2, 5] = "Target";
+                    xlWorkSheet.Cells[startRow-1, startCol] = "Point";
+                    xlWorkSheet.Cells[startRow-1, startCol+1] = colName;
+                    xlWorkSheet.Cells[startRow - 1, startCol+2] = "High";
+                    xlWorkSheet.Cells[startRow - 1, startCol+3] = "Low";
+                    xlWorkSheet.Cells[startRow - 1, startCol+4] = "Target";
                 }
                 else //write master readings to Excel instead
                 {
@@ -3075,6 +3091,64 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("Unable to save readings to Excel file.\n\nThere may be no reading recorded, or the Excel file is currently opened");
             }
+        }
+        //check if 1st channel tab, and showCMCMK checked, then write value to excel
+        //Passed in rowIndex and colIndex of where CM CMK will be written
+        //Will be written as 
+        //      col1 col2
+        //row1  CM:  CM_val
+        //row2  CMK: CM_val
+        //Added 3/227/18
+        private Excel.Worksheet writeCMCMKtoExcel(Excel.Worksheet wSheet, int rowIndex, int colIndex)
+        {
+            if (TabPages.SelectedTab.Name==SMDSingleTabName && showCMK_chkBox.Checked==true)
+            {
+                wSheet.Cells[rowIndex, colIndex] = "CM:";
+                wSheet.Cells[rowIndex + 1, colIndex] = "CMK:";
+                try
+                {
+                    int readingColIndex = 1;
+                    LSL = Single.Parse(LSL_txt.Text.ToString());
+                    USL = Single.Parse(USL_txt.Text.ToString());
+                    List<float> ch1ReadingList = getDataColfromDataGrid(singleChannel_gridView, readingColIndex);
+
+                    //write CM val
+                    try
+                    {
+                        double CM_val = ch1CM_CMK.calculate_CM(LSL, USL, ch1ReadingList);
+                        wSheet.Cells[rowIndex, colIndex + 1] = Math.Round(CM_val, 2);
+                    }
+                    catch { }
+                    try
+                    {
+                        double CMK_val = ch1CM_CMK.calculate_CMK(LSL, USL, ch1ReadingList);
+                        wSheet.Cells[rowIndex+1, colIndex + 1] = Math.Round(CMK_val, 2);
+                    }
+                    catch { }
+                }
+                catch { }
+            }
+            return wSheet;
+        }
+
+        //return the row number that excel start to write the Readings (not counting header)
+        //Added 3/27/18
+        private int getStartRowExcelData(string tabName)
+        {
+            int returnRow=3;//1st row is tab name, 2nd row is column header
+
+            switch (tabName)
+            {
+                case SMDSingleTabName://if smd single, check if CM and CMK value is checked
+                    //if it's checked, add 2 more rows for CM and CMK
+                    if (showCMK_chkBox.Checked==true)
+                        returnRow += 2;
+                    break;
+                default:
+                    break;
+            }
+
+            return returnRow;
         }
         //passed in colName from table, find out if that colName is X or Y of a serie from passed in chart
         private string getSerieNamefrXorY(string thisColName, Chart thisChart)
@@ -3349,6 +3423,7 @@ namespace WindowsFormsApplication1
         public static string write_command(string command,SerialPort port)
         {
             string returnvalue = "";
+            string err;
             if (port.IsOpen)
             {
                 try
@@ -3358,7 +3433,9 @@ namespace WindowsFormsApplication1
                     returnvalue = port.ReadTo(";");
 
                 }
-                catch { }
+                catch (Exception e){
+                    
+                }
             }
             return returnvalue;
         }
@@ -4087,12 +4164,15 @@ namespace WindowsFormsApplication1
         }
         
         //When 1 of the firstChannel Grid change, change all grid for first channel
+        //changed 3/27/18
         private void copyAllFirstChannelGridView(DataGridView thisGrid)
         {
-            copyGridView(thisGrid,ref gridview);
+            copyGridView(thisGrid, ref gridview);
+            /*
+            
             copyGridView(thisGrid, ref singleChannel_gridView);
             copyGridView(thisGrid, ref firstChannelGrid);
-            
+            */
         }
 ///////////////////////Handle User changing value from our gridview        
         private void gridview1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -7990,10 +8070,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
         private void showHideCMK(bool isShown)
         {
             CM_lbl.Visible = isShown;
@@ -8288,11 +8364,13 @@ namespace WindowsFormsApplication1
 
         //parse readings from wbook into Data Table and return it
         //Used by SC and DC tab
+        //Todo: Handle open old excel with CM CMK
         private DataTable getTableFromExcel(ExcelWorkbook wbook)
         {
             int startReadingRowIndexExcel = 2;
             int headerRowIndexExcel = 1;
             int startColIndexExcel = 0;
+            
             DataTable returnTable = new DataTable();
             
             //Create header for datatable
@@ -8534,6 +8612,7 @@ namespace WindowsFormsApplication1
         }
 
         //Populate test grid with excel data, only deal w 1 quadrant at a time
+        //changed 05/01/18 to not write 0 point from old test
         private void populateTestGridwithDataFromExcel(ExcelWorksheet wsheet,int startRow,ref DataGridView testGrid)
         {
             try
@@ -8547,9 +8626,10 @@ namespace WindowsFormsApplication1
                     point = Int32.Parse(wsheet.Cells[rowIndex, pointColIndex].Value.ToString());
                     ch1Reading = Single.Parse(wsheet.Cells[rowIndex, ch1ColIndex].Value.ToString());
                     ch2Reading = Single.Parse(wsheet.Cells[rowIndex, ch2ColIndex].Value.ToString());
-
-                    testGrid[ch1ColIndex, point - 1].Value = ch1Reading;
-                    testGrid[ch2ColIndex, point - 1].Value = ch2Reading;
+                    if (ch1Reading!=0)
+                        testGrid[ch1ColIndex, point - 1].Value = ch1Reading;
+                    if (ch2Reading!=0)
+                        testGrid[ch2ColIndex, point - 1].Value = ch2Reading;
 
                     rowIndex++;
                 }
@@ -8573,35 +8653,43 @@ namespace WindowsFormsApplication1
         }
         
         //Open old Test for SC, DC and SMD-Tools, pass in path of excel file
-        private void openOldTestSCExcel(string path)
+        //Changed 3/29/18
+        private void openOldTestExcel(string path)
         {
             ExcelWorkbook wbook = ExcelWorkbook.ReadXLS(path);
 
             string xcellTabName= wbook.Worksheets[0].Cells[0, 0].Value.ToString();
             //See first cell if it has SMD Tab header
-            switch (xcellTabName)
+            try
             {
-                case SMDSingleTabName:
-                    if (xcellTabName == TabPages.SelectedTab.Name)
-                        openTest_SC(wbook);
-                    else
-                        MessageBox.Show("Single Channel Tab needed to be selected to open this Excel.");
-                    break;
-                case SMDDualTabName:
-                    if (xcellTabName == TabPages.SelectedTab.Name)
-                        openTest_DC(wbook);
-                    else
-                        MessageBox.Show("Dual Channel Tab needed to be selected to open this Excel.");
-                    break;
-                case calTabName:
-                    if (xcellTabName == TabPages.SelectedTab.Name)
-                        openTest_CalCert(wbook);
-                    else
-                        MessageBox.Show("Cal Cert Tab needed to be selected to open this Excel.");
-                    break;
-                default:
-                    MessageBox.Show("Unable to recognize the Saved Test file.");
-                    break;
+                switch (xcellTabName)
+                {
+                    case SMDSingleTabName:
+                        if (xcellTabName == TabPages.SelectedTab.Name)
+                            openTest_SC(wbook);
+                        else
+                            MessageBox.Show("Single Channel Tab needed to be selected to open this Excel.");
+                        break;
+                    case SMDDualTabName:
+                        if (xcellTabName == TabPages.SelectedTab.Name)
+                            openTest_DC(wbook);
+                        else
+                            MessageBox.Show("Dual Channel Tab needed to be selected to open this Excel.");
+                        break;
+                    case calTabName:
+                        if (xcellTabName == TabPages.SelectedTab.Name)
+                            openTest_CalCert(wbook);
+                        else
+                            MessageBox.Show("Cal Cert Tab needed to be selected to open this Excel.");
+                        break;
+                    default:
+                        MessageBox.Show("Unable to recognize the Saved Test file.");
+                        break;
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Unable to load file due to error:\n" + e.Message, "Error");
             }
         }
         
@@ -8624,7 +8712,7 @@ namespace WindowsFormsApplication1
             string path = getOpenPathName("");
             if ((path != "") && (path.Contains(".xls")))
             {
-                openOldTestSCExcel(path);
+                openOldTestExcel(path);
                 updateTableandChart(ref singleChart, singleChannel_gridView);
             }
         }

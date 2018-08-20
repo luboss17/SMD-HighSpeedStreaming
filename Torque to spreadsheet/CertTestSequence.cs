@@ -445,11 +445,12 @@ namespace WindowsFormsApplication1
         }
         
         //write Reading to certTable for Dual Test
-        public void set_dualcertTable(List<string> thisInput, List<string> thisOutput)
+        public void set_dualcertTable(List<string> ch1Readings, List<string> ch2Readings)
         {
             //Write the readings to certTable
-            writeListstringToDataTable(ref certTable,thisInput,inputColName);
-            writeListstringToDataTable(ref certTable,thisOutput,outputColName);
+            //ch1 is normally Input, ch2 is Output
+            writeListstringToDataTable(ref certTable,ch2Readings,inputColName);
+            writeListstringToDataTable(ref certTable,ch1Readings,outputColName);
             
             //Write Target to certTable
             writeListstringToDataTable(ref certTable,targetList,targetColName);
