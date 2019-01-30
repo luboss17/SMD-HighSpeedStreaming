@@ -2922,10 +2922,13 @@ namespace WindowsFormsApplication1
                 Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
                 Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(200, 80, 500, 250);
                 Excel.Chart chartPage = myChart.Chart;
+                chartPage.ChartType = Excel.XlChartType.xlLine;
+                /*
                 if (chartType == lineChart)
-                    chartPage.ChartType = Excel.XlChartType.xlXYScatterLines;
+                    chartPage.ChartType = Excel.XlChartType.xlLine;//.xlXYScatterLines;
                 else
                     chartPage.ChartType = Excel.XlChartType.xlXYScatter;
+                */
                 chartPage.HasTitle = true;
                 chartPage.ChartTitle.Text = "File saved at " + path;
                 chartPage.ChartTitle.Font.Size = 12;
