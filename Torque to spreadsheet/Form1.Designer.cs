@@ -212,6 +212,8 @@ namespace WindowsFormsApplication1
             this.dsad = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.doneStream_btn = new System.Windows.Forms.Button();
+            this.startStream_btn = new System.Windows.Forms.Button();
             this.label43 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.USL_txt = new System.Windows.Forms.TextBox();
@@ -2306,6 +2308,8 @@ namespace WindowsFormsApplication1
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.doneStream_btn);
+            this.groupBox3.Controls.Add(this.startStream_btn);
             this.groupBox3.Controls.Add(this.label43);
             this.groupBox3.Controls.Add(this.label33);
             this.groupBox3.Controls.Add(this.USL_txt);
@@ -2333,6 +2337,26 @@ namespace WindowsFormsApplication1
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Current Run\'s Readings";
+            // 
+            // doneStream_btn
+            // 
+            this.doneStream_btn.Location = new System.Drawing.Point(343, 45);
+            this.doneStream_btn.Name = "doneStream_btn";
+            this.doneStream_btn.Size = new System.Drawing.Size(125, 23);
+            this.doneStream_btn.TabIndex = 115;
+            this.doneStream_btn.Text = "Import Stream Data";
+            this.doneStream_btn.UseVisualStyleBackColor = true;
+            this.doneStream_btn.Click += new System.EventHandler(this.doneStream_btn_Click);
+            // 
+            // startStream_btn
+            // 
+            this.startStream_btn.Location = new System.Drawing.Point(212, 45);
+            this.startStream_btn.Name = "startStream_btn";
+            this.startStream_btn.Size = new System.Drawing.Size(125, 23);
+            this.startStream_btn.TabIndex = 106;
+            this.startStream_btn.Text = "Start Stream";
+            this.startStream_btn.UseVisualStyleBackColor = true;
+            this.startStream_btn.Click += new System.EventHandler(this.startStream_btn_Click);
             // 
             // label43
             // 
@@ -4970,6 +4994,8 @@ namespace WindowsFormsApplication1
         private TextBox LSL_txt;
         private Label label43;
         private Label label33;
+        private Button startStream_btn;
+        private Button doneStream_btn;
     }
 }
 

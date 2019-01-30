@@ -118,6 +118,7 @@ namespace WindowsFormsApplication1
             activateJetCellLicense();
             firstChannelGrid.Scroll+=new ScrollEventHandler(makeSecondGridScroll);
             secondChannelGridView.Scroll+=new ScrollEventHandler(makeFirstGridScroll);
+            serialPort1.DataReceived += serialPort1_DataReceived;
         }
         //Open Virtual Keyboard, for tablet
         public static void openVirtualKeyboard(object sender, EventArgs e)
@@ -171,7 +172,7 @@ namespace WindowsFormsApplication1
             //noCurrentDualTableBinding.ResetBindings(false);
 
             controlTabVisibility();//select visibility of each tab
-            InitTimer();//init timer2 to lively display reading
+            //InitTimer();//init timer2 to lively display reading
             loadSettings();
             
             bindTable();
@@ -1714,14 +1715,15 @@ namespace WindowsFormsApplication1
         private void timer2_Tick(object sender, EventArgs e)
         {
             
-            if (enableLiveReadingToolStripMenuItem.Checked)
+            if ((enableLiveReadingToolStripMenuItem.Checked)&&(isStream==false))
             {
                 updateChannelsReadings();
             }
             
             try
             {
-                displayCMCMK();
+                if (isStream==false)
+                    displayCMCMK();
             }
             catch { }
         }
@@ -2236,8 +2238,8 @@ namespace WindowsFormsApplication1
             port.DataBits = 8;
             port.StopBits = StopBits.One;
             port.Handshake = Handshake.None;
-            port.ReadTimeout = maxReadTimeOut;
-            port.WriteTimeout = 100;
+            //port.ReadTimeout = maxReadTimeOut;
+            //port.WriteTimeout = 100;
             //port.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
         }
 
@@ -4218,8 +4220,10 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                thisGrid.CurrentCell.Selected = false;
-                thisGrid.Rows[rowIndex].Selected = true;
+                //Todo: Uncomment this if we want to focus on gridview
+                    //thisGrid.CurrentCell.Selected = false;
+                    //thisGrid.Rows[rowIndex].Selected = true;
+                
             }
             catch { }
         }
@@ -8097,6 +8101,220 @@ namespace WindowsFormsApplication1
         {
             ch1CMCMKReCalculate = true;
         }
+        /// <summary>
+        /// /////////////////////////Start Streaming////////////////////////////
+        /// </summary>
+        bool isStream = false;
+        List<byte> masterStream = new List<byte>();
+        private List<double> readingsList = new List<double>();
+        const string startSingleStreamCommand= "?*M;";
+        byte lastStreamHeader = 0, currStreamHeader = 0;
+        string[] acknowledge = new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p" };
+        private void startStream_btn_Click(object sender, EventArgs e)
+        {
+            masterStream = new List<byte>();
+            isStream = true;
+            EndOfStreamTick = false;
+            timerTickCount = 0;
+            streamingTimer.Stop();
+            streamingTimer.Enabled = false;
+            startStream(serialPort1);
+        }
+        //Check if byteArr has header from Streaming, if it does, send back ack
+        private void checkForStreamHeader(byte[] byteArr,SerialPort thisPort)
+        {
+            int ackLoc;
+            if (isStream == true)
+                masterStream.AddRange(byteArr);
+            foreach (byte runningByte in byteArr)
+            {
+                //A0 to AF
+                if ((runningByte >= 160) && (runningByte <= 175))
+                {
+                    currStreamHeader = runningByte;
+
+                    if (lastStreamHeader != 0)
+                    {
+                        ackLoc = lastStreamHeader % 160;
+                        sendCommand(Encoding.ASCII.GetBytes(acknowledge[ackLoc])[0], thisPort);
+                        lastStreamHeader = currStreamHeader;
+                    }
+                    else
+                        lastStreamHeader = currStreamHeader;
+                }
+                else if (runningByte == 176)
+                {
+                    //final packet, no need to acknowlege
+                    ackLoc = currStreamHeader % 160;
+                    sendCommand(Encoding.ASCII.GetBytes(acknowledge[ackLoc])[0], thisPort);
+                    //InitStreamingTimer();
+                }
+            }
+
+        }
+        System.Windows.Forms.Timer streamingTimer = new System.Windows.Forms.Timer();
+        int streamingInterval = 1500;
+        bool EndOfStreamTick = false;
+        int timerTickCount = 0;
+        private void InitStreamingTimer()
+        {
+            streamingTimer = new System.Windows.Forms.Timer();
+            streamingTimer.Tick += new EventHandler(streamingTimer_Tick);
+            streamingTimer.Interval = streamingInterval;
+            streamingTimer.Start();
+        }
+
+        //Trigger when timer tick
+        private void streamingTimer_Tick(object sender, EventArgs e)
+        {
+            if (timerTickCount<=3)
+                timerTickCount++;
+            
+            if ((EndOfStreamTick == true)&&(timerTickCount==2))
+            {
+                //Done streaming
+                doneStreaming();
+                EndOfStreamTick = false;
+                isStream = false;
+                streamingTimer.Stop();
+                streamingTimer.Enabled = false;
+            }
+            else
+            {
+                EndOfStreamTick = true;
+            }
+        }
+        //for now, stop stream call this to decode stream
+        private void decodeMasterStream(List<byte> masterStream)
+        {
+            int pos = 0;
+            readingsList = new List<double>();
+            int offsetPacketLength = 3;//for header, reading length and rcs8 byte length
+            while (pos < masterStream.Count)
+            {
+                byte runningByte = masterStream[pos];
+                if ((runningByte >= 161) && (runningByte <= 175))
+                {
+                    int readingLength_byte = masterStream[pos + 1] & 0xFF;
+                    try
+                    {
+                        byte[] OneWholePacket = masterStream.GetRange(pos, readingLength_byte + offsetPacketLength).ToArray();
+                        PACKET packet = new PACKET(OneWholePacket);
+                        readingsList.AddRange(packet.decodePacket());
+                        pos += readingLength_byte + offsetPacketLength;
+                    }
+                    catch(Exception e)
+                    {
+
+                    }
+                }
+                else
+                {
+                    pos++;
+                }
+            }
+            //write to singlechannel gridview
+            writeListToGridView(readingsList, ref singleChannel_gridView);
+            updateTableandChart(ref singleChart, singleChannel_gridView);
+        }
+        private void writeListToGridView(List<double> readingList,ref DataGridView thisGrid)
+        {
+            thisGrid.Rows.Clear();
+            thisGrid.Refresh();
+            
+            for (int rowIndex = 0; rowIndex < readingList.Count; rowIndex++)
+            {
+                if (((rowIndex%40)==0)&&(rowIndex!=0))
+                {
+                    thisGrid.CurrentCell.Selected = false;
+                    thisGrid.Rows[1].Selected = true;
+                }
+                //Todo: get Unit and change to new string[2]
+                string[] strToadd = new string[1];
+                strToadd[0] = readingList[rowIndex].ToString();
+                addRowWithoutUpdateChart(strToadd);
+                
+            }
+
+        }
+        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            //thisPort.DtrEnable = true;
+            //thisPort.RtsEnable = true;
+            if (isStream == true)
+            {
+                int bytes = serialPort1.BytesToRead;
+                byte[] Bytebuffer = new byte[bytes];
+                serialPort1.Read(Bytebuffer, 0, bytes);
+                this.Invoke(new MethodInvoker(delegate ()
+                {
+                    checkForStreamHeader(Bytebuffer,serialPort1);
+                }));
+            }
+        }
+        private void startStream(SerialPort thisPort)
+        {
+            sendCommand(startSingleStreamCommand, thisPort);
+        }
+
+        private void sendCommand(string command, SerialPort thisPort)
+        {
+            if (thisPort.IsOpen)
+            {
+                try
+                {
+                    thisPort.Write(command);
+                    //returnvalue = thisPort.ReadTo(";");
+                }
+                catch (InvalidOperationException ioe)
+                {
+                    //if (thisPort != null)
+                    //    thisPort.Dispose();
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+        }
+        private void doneStreaming()
+        {
+            isStream = false;
+            byte stopStreamByte = 0x1B;
+            sendCommand(stopStreamByte, serialPort1);
+            decodeMasterStream(masterStream);
+        }
+        private void doneStream_btn_Click(object sender, EventArgs e)
+        {
+            doneStreaming();
+        }
+
+        private void sendCommand(byte command, SerialPort thisPort)
+        {
+            byte[] bytestosend = new byte[1] { command };
+            if (thisPort.IsOpen)
+            {
+                try
+                {
+                    thisPort.Write(bytestosend, 0, 1);
+                }
+                catch (InvalidOperationException ioe)
+                {
+                    //if (thisPort != null)
+                    //    thisPort.Dispose();
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+        }
+        /// <summary>
+        /// ///////////////////End Streaming///////////////////////////////////
+        /// </summary>
+        /// 
+
+
 
         //set flag that ch1valuechanged= true
         private void singleChannel_gridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
