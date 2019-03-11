@@ -201,3 +201,6 @@ C:\Users\huyhu\Documents\Visual Studio 2015\Projects\SMD-HighSpeedStreaming\Torq
 C:\Users\huyhu\Documents\Visual Studio 2015\Projects\SMD-HighSpeedStreaming\Torque to spreadsheet\obj\Release\SMD-HighSpeedStreaming.application
 C:\Users\huyhu\Documents\Visual Studio 2015\Projects\SMD-HighSpeedStreaming\Torque to spreadsheet\obj\Release\SMD-HighSpeedStreaming.exe
 C:\Users\huyhu\Documents\Visual Studio 2015\Projects\SMD-HighSpeedStreaming\Torque to spreadsheet\obj\Release\SMD-HighSpeedStreaming.pdb
+C:\Users\Huy\Desktop\TTS-Master\SMD-ToolsStream\Torque to spreadsheet\bin\Release\SMD-HighSpeedStreaming.exe.config
+C:\Users\Huy\Desktop\TTS-Master\SMD-ToolsStream\Torque to spreadsheet\obj\Release\SMD-HighSpeedStreaming.exe
+C:\Users\Huy\Desktop\TTS-Master\SMD-ToolsStream\Torque to spreadsheet\obj\Release\SMD-HighSpeedStreaming.pdb
